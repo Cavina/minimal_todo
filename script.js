@@ -28,6 +28,7 @@ async function init() {
         oidcIssuer: "https://solidcommunity.net",
         redirectUrl: window.location.href,
         clientName: "Solid To‑Do",
+	clientId:   "551b9b8f-a3ed-4f6e-91bc-a76e3bc33b8e"
       })
     );
   } else {
