@@ -24,7 +24,7 @@ async function init() {
     loginSection.hidden = false;
     btnLogin.addEventListener("click", () =>
       session.login({
-        oidcIssuer: "https://login.inrupt.net",
+        oidcIssuer: "https://auth.inrupt.com",
         redirectUrl: window.location.href,
         clientName: "Solid To‑Do",
       })
