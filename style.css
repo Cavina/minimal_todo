@@ -1,0 +1,43 @@
+body {
+  font-family: sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+#login-section,
+#config {
+  margin-bottom: 1.5rem;
+}
+
+#new-task-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+}
+
+#task-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+#task-list li span {
+  flex: 1;
+  margin-left: 0.5rem;
+}
+
+#task-list li button {
+  margin-left: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
