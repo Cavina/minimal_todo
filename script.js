@@ -24,8 +24,8 @@ async function init() {
     loginSection.hidden = false;
     btnLogin.addEventListener("click", () =>
       session.login({
-        oidcIssuer: "https://auth.inrupt.com",
-        redirectUrl: window.location.href,
+        oidcIssuer: "https://login.inrupt.com",
+        redirectUrl: "https://cavina.github.io/minimal_todo/",
         clientName: "Solid To‑Do",
       })
     );
