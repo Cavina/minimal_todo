@@ -1,10 +1,10 @@
-import { Session } from "https://cdn.jsdelivr.net/npm/@inrupt/solid-client-authn-browser/dist/solid-client-authn-browser.bundle.min.js";
+// Use the global from the authn bundle:
+const session = solidClientAuthentication.getDefaultSession();
 
-const session = new Session();
 let tasks = [];
 let fileUrl = "";
 
-// --- UI ELEMENTS ---
+// UI elements
 const loginSection = document.getElementById("login-section");
 const btnLogin = document.getElementById("btn-login");
 const appShell = document.getElementById("app");
@@ -15,9 +15,8 @@ const newTaskForm = document.getElementById("new-task-form");
 const newTaskInput = document.getElementById("new-task");
 const taskList = document.getElementById("task-list");
 
-// --- AUTH & BOOTSTRAP ---
 async function init() {
-  // Restore previous session (if any) or handle incoming redirect
+  // Handle redirect and restore session if returning
   await session.handleIncomingRedirect({ restorePreviousSession: true });
 
   if (!session.info.isLoggedIn) {
@@ -32,14 +31,13 @@ async function init() {
       })
     );
   } else {
-    // hide login, show app
+    // logged in!
     loginSection.hidden = true;
     appShell.hidden = false;
     btnLoad.addEventListener("click", onLoad);
   }
 }
 
-// --- LOAD / SAVE TASKS ---
 async function onLoad() {
   fileUrl = document.getElementById("file-url").value.trim();
   if (!fileUrl) return alert("Enter the full URL for tasks.json");
@@ -73,7 +71,6 @@ async function saveTasks() {
   });
 }
 
-// --- RENDER & INTERACTIONS ---
 function renderTasks() {
   taskList.innerHTML = "";
   tasks.forEach((task) => {
@@ -110,7 +107,7 @@ function renderTasks() {
   });
 }
 
-// new‑task form
+// new-task form
 newTaskForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const desc = newTaskInput.value.trim();
@@ -121,6 +118,6 @@ newTaskForm.addEventListener("submit", async (e) => {
   renderTasks();
 });
 
-// --- START ---
+// Start the app
 init();
 
